@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import App from 'components/App';
 import reportWebVitals from './reportWebVitals';
-import {RecoilRoot} from 'recoil';
+import { RecoilRoot } from 'recoil';
 
 ReactDOM.render(
   <RecoilRoot>
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <React.StrictMode>
+      <Suspense fallback={<div>Loading</div>}>
+        <App />
+      </Suspense>
+    </React.StrictMode>
   </RecoilRoot>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
 
 // If you want to start measuring performance in your app, pass a function
